@@ -2,6 +2,8 @@
 <head>
 	<title>Delete Google Music Duplicates</title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<style>
 		* {
 			margin: 0; padding: 0;
@@ -10,7 +12,7 @@
 		body {
 			height: 100%;
 
-			font-family: 'Open Sans', sans-serif;
+			font-family: 'Roboto', 'Open Sans', sans-serif;
 			font-size: 16px;
 
 			background: #1c1c1c;
@@ -18,16 +20,30 @@
 
 			text-align: center;
 		}
+		.content {
+			display: flex;
+			flex-flow: column nowrap;
+
+			align-items: center;
+			justify-content: space-between;
+
+			min-height: 100%;
+			min-width: 100%;
+		}
 		.center {
-			height: 100%;
-
+			flex: 1;
 			max-width: 80ch;
-
-			margin: 0 auto;
 
 			padding: 24px;
 
 			background: #1f1f1f;
+		}
+		.footer {
+			width: 100%;
+			background: #1f1f1f;
+		}
+		.footer p {
+			padding: 4px;
 		}
 
 		h1 {
@@ -36,47 +52,88 @@
 			color: #ff5722;
 		}
 
+		a {
+			color: #fff;
+			text-decoration: none;
+
+			transition: .12s ease-out;
+		}
+		a:hover {
+			color: #ff5722;
+		}
+
 		p {
 			padding: 8px 0;
 		}
-
 		.small-text {
 			font-size: 0.8em;
+			color: #8f8f8f;
+		}
+		.pad-soft {
+			padding: 2px 0;
 		}
 
-		.button-large {
-			display: block;
+		.links {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 
-			padding: 24px;
-			margin: 16px 0 0 0;
+			margin: 24px 0 0 0;
+		}
+
+		.button {
+			display: inline-block;
 
 			border-radius: 8px;
 
-			color: #1c1c1c;
+			color: #fafafa;
 			background: #ff5722;
 
 			text-decoration: none;
 
-			transition: .14s;
+			transition: .12s ease-out;
 		}
-		.button-large:hover {
+		.button:hover {
+			color: #fff;
 			background: #ff602f;
-
 			box-shadow: 0 8px 12px rgba(0,0,0,0.4);
+		}
+		.button-small {
+			padding: 24px 8px;
+			margin: 0 2px;
+		}
+		.button-large {
+			flex: 1;
+			padding: 24px 16px;
+			margin: 0 8px;
 		}
 	</style>
 </head>
 <body>
-	<div class="center">
-		<h1>Delete Google Music Duplicates</h1>
-		<p>Google Play Music has a duplicates issue. Use this Python tool to delete duplicate library uploads.</p>
-		<p>This will delete the tracks with the lowest play counts, instead of deleting the oldest played.</p>
-		<p class="small-text">Requires Python 3 and gmusicapi.</p>
+	<div class="content">
+		<div class="center">
+			<h1>Delete Google Music Duplicates</h1>
+			<p>Duplicate songs in your Play Music library? Use this Python tool to quickly and easily delete duplicate library uploads.</p>
+			<p>This will delete the tracks with the lowest play counts, instead of deleting the oldest played.</p>
+			<p class="small-text pad-soft">Requires Python 3 and gmusicapi.</p>
+			<p class="small-text pad-soft">Visit the <a href="https://github.com/sam-cross/delete-google-music-duplicates">GitHub repository</a> for instructions.</p>
 
-		<a href="https://github.com/sam-cross/delete-google-music-duplicates"
-			class="button-large">
-			Get Started
-		</a>
+			<div class="links">
+				<a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/sam-cross/delete-google-music-duplicates/tree/master"
+					class="button button-large">
+					Download
+				</a>
+				<a href="https://github.com/sam-cross/delete-google-music-duplicates"
+					class="button button-large">
+					GitHub
+				</a>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p class="small-text">&copy; 2020 Sam Cross - Website and application licensed under the MIT license</p>
+			<p class="small-text faint-text">Website and tool not associated with Google.</p>
+		</div>
 	</div>
 </body>
 </html>
