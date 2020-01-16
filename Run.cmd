@@ -1,0 +1,2 @@
+python DeleteDupes.py
+exit
