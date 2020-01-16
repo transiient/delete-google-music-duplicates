@@ -25,6 +25,7 @@ client = Mobileclient()
 logged_in = False
 # True: Delete tracks with lower playcount, instead of most recently uploaded
 mode_new = True
+run_count = 0
 
 def printv(string):
 	if (cmd_args.v):
@@ -64,8 +65,6 @@ def loginflow():
 
 while not logged_in:
 	logged_in = loginflow()
-
-run_count = 0
 
 def delete_songs(songs_list):
 	if (cmd_args['-s']):
@@ -133,7 +132,7 @@ def get_remove_dupes(previous_run_count):
 		print('The following will delete all the above IRRECOVERABLY.')
 		print('Only a single copy of the above tracks will remain.')
 		print('Please be sure you have backups of your music, just in case!')
-		
+
 		if input('Delete duplicate songs? (y/N): ') is 'y':
 			print('Deleting songs ...')
 			delete_songs(duplicates_ids)
