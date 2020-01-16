@@ -13,7 +13,11 @@
 
 # License: MIT
 
-from gmusicapi import Mobileclient
+try:
+	from gmusicapi import Mobileclient
+except:
+	print("You're missing gmusicapi. Please install it with\n\tpip install gmusicapi\nand then run this again!")
+	exit()
 
 # True: Delete tracks with lower playcount, instead of most recently uploaded
 mode_new = True
