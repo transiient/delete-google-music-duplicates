@@ -14,7 +14,6 @@
 # License: MIT
 
 from gmusicapi import Mobileclient
-from getpass import getpass
 
 # True: Delete tracks with lower playcount, instead of most recently uploaded
 mode_new = True
@@ -47,24 +46,6 @@ def get_remove_dupes(previous_run_count):
 	songs = {}
 	songs_old = {}
 
-	# hsongs = []
-	# for song in all_songs:
-	# 	if song.get('artist') == 'Hundredth':
-	# 		hsongs.append([song.get('artist'),
-	# 			song.get('album'),
-	# 			song.get('title'),
-	# 			song.get('discNumber'),
-	# 			song.get('trackNumber'),
-	# 			'Extra info follows',
-	# 			song.get('genre'),
-	# 			song.get('trackNumber'),
-	# 			song.get('playCount')])
-
-	# def tS(el):
-	# 	return el[1]
-	# for s in sorted(hsongs, key=tS): print(s)
-	# exit()
-
 	for song in all_songs:
 		song_id = song.get('id')
 		recent_timestamp = song.get('recentTimestamp')
@@ -87,13 +68,13 @@ def get_remove_dupes(previous_run_count):
 		# If current song is in the new_songs list
 		# Compare keys
 		if key in songs:
-			if mode_new: # by playCount
+			if mode_new: # by play count
 				if songs[key]['play_count'] < play_count:
 					songs_old[key] = songs[key]
 					songs[key] = { 'id': song_id, 'recent_timestamp': recent_timestamp, 'play_count': play_count }
 				else:
 					songs_old[key] = { 'id': song_id, 'recent_timestamp': recent_timestamp, 'play_count': play_count }
-			else:
+			else: # by most recently played
 				if songs[key]['recent_timestamp'] < recent_timestamp:
 					songs_old[key] = songs[key]
 					songs[key] = { 'id': song_id, 'recent_timestamp': recent_timestamp, 'play_count': play_count }
@@ -112,10 +93,13 @@ def get_remove_dupes(previous_run_count):
 			print('\t' + str(key.encode('utf-8')))
 
 		print('\nNumber of duplicates: ' + str(len(songs_old)))
+
+		print('The following will delete all the above IRRECOVERABLY.')
+		print('Only a single copy of the above tracks will remain.')
+		print('Please be sure you have backups of your music, just in case!')
 		
 		if input('Delete duplicate songs? (y/N): ') is 'y':
 			print('Deleting songs ...')
-			#print('\t' + str(old_song_ids))
 			client.delete_songs( old_song_ids )
 			print('Done! Checking again just in case...')
 			get_remove_dupes(run_count)
