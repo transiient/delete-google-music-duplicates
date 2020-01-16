@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 
-# created by shuichinet https://gist.github.com/shuichinet
-# forked from https://gist.github.com/shuichinet/8159878 21 Nov 2015
-# using minor edits by fcrimins https://www.reddit.com/user/fcrimins from https://www.reddit.com/r/google/comments/2xzgyv/remove_duplicate_songs_from_google_play_music/csh6mrh
-# also using clever edits by Morgan Gothard https://medium.com/@mgothard
-# updated for Python 3.5 by John M. Kuchta https://medium.com/@sebvance 22 Nov 2016 (hey I was busy)
-# compiled by John M. Kuchta https://medium.com/@sebvance
-# thanks to shuichinet, fcrimins and Mr. Gothard for their work
+#### Credits
+# Original code by shuichinet (unfortunately lost to the internet)
+# Updated by John M. Kuchta https://medium.com/@sebvance
+# Thank you to shuichinet, Mr. Gothard, and Mr. Kuchta for their work!
 
-# Edited and converted to Python 3.7 by Sam Cross https://github.com/sam-cross
-# Now using OAuth login!
+# Converted for compatibility with Python 3.7 by Sam Cross https://github.com/sam-cross
+# Now with OAuth login and additional options.
+
+# Visit https://github.com/sam-cross/delete-google-music-duplicates
 
 # License: MIT
 
@@ -31,8 +30,7 @@ def loginflow():
 		return True
 	else:
 		print("Couldn't log in automatically. Try logging in with your browser.")
-		client.perform_oauth(open_browser=True)
-		return True
+		return client.perform_oauth(open_browser=True)
 
 while (not logged_in):
 	logged_in = loginflow()
