@@ -5,8 +5,11 @@
 	<style>
 		* {
 			margin: 0; padding: 0;
+			box-sizing: border-box;
 		}
 		body {
+			height: 100%;
+
 			font-family: 'Open Sans', sans-serif;
 			font-size: 16px;
 
@@ -16,6 +19,8 @@
 			text-align: center;
 		}
 		.center {
+			height: 100%;
+
 			max-width: 80ch;
 
 			margin: 0 auto;
@@ -51,6 +56,13 @@
 			background: #ff5722;
 
 			text-decoration: none;
+
+			transition: .14s;
+		}
+		.button-large:hover {
+			background: #ff602f;
+
+			box-shadow: 0 8px 12px rgba(0,0,0,0.4);
 		}
 	</style>
 </head>
