@@ -8,7 +8,7 @@
 # Converted for compatibility with Python 3.7 by Sam Cross https://github.com/sam-cross
 # Now with OAuth login and additional options.
 
-# Visit https://github.com/sam-cross/delete-google-music-duplicates
+# Visit https://sam-cross.github.io/delete-google-music-duplicates
 
 # License: MIT
 
@@ -109,6 +109,7 @@ def get_remove_dupes(previous_run_count):
 			print('Okay - nothing will be deleted.')
 			exit()
 	else:
+		print('Scanned ' + str(len(all_songs)) + ' songs')
 		print('No duplicates found!')
 		exit()
 
