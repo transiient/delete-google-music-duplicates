@@ -1,3 +1,13 @@
+Well, this was fun while it lasted...
+
+**Unfortunately, GPM is now no longer, so I've archived this repository.**
+
+Thank you for the kind words and support in your use of this tool.
+
+If someone would like to fork this repo and create a version for YouTube Music, using the [Unofficial API](https://github.com/sigma67/ytmusicapi) I'd be happy to contribute.
+
+----
+
 # Delete Google Play Music Duplicates
 
 Delete duplicate songs on Google Play Music. Requires *Python 3.x* and `gmusicapi`.
